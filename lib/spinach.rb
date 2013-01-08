@@ -72,7 +72,8 @@ module Spinach
     feature_steps.detect do |feature|
         feature.name == klass ||
         feature.name == scoped_klass ||
-        feature.feature_name.to_s == name.to_s
+        feature.feature_name.to_s == name.to_s ||
+        Spinach::Support.demodulize(feature.name) == klass
     end
   end
 end
